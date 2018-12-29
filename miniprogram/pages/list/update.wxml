@@ -16,3 +16,4 @@
       </view>
       <button class='comfirm' type='primary' bindtap='comfirm'>保存</button>
 </view>
+<image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!uploading}}"></image>

@@ -1,8 +1,8 @@
 <view class="container">
-   <form bindsubmit='add' >
-     <textarea cols="30" rows="10" placeholder="请输入反馈内容" name="content" maxlength='200'></textarea>
-      <view class='comfirm'>
-           <button type='primary' form-type='submit'>提交</button>
-      </view>
-   </form>
+  <view class='tip' wx:if="{{!feedback.length&&loaded}}">反馈信息为空</view>
+   <view class='feedback' wx:for="{{feedback}}" wx:key="item._id" bindtap="getDetail" id='{{item._id}}'>
+    <view class='fl'>{{item.content}}</view>
+    <view class='fr' wx:if="{{item.reply}}">作者已回复</view>
+   </view>
+   <button type='primary' class='add-feedback' bindtap="addfeedback" hidden="{{!loaded}}">添加反馈</button>
 </view>

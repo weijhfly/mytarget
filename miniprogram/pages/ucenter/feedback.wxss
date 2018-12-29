@@ -1,9 +1,16 @@
-textarea{
-  border:2px solid #eee;
-  margin-top:50rpx;
-  padding:10rpx 20rpx;
-  background:#fff;
+.tip{
+  color: #999;
+  margin-top: 200rpx;
 }
-.comfirm{
-  margin-top: 100rpx;
+.fl{float: left;width: 70%;overflow: hidden;}
+.fr{float: right;font-size: 30rpx;color: #f60;margin-top: 6rpx;}
+.feedback{
+  width: 100%;
+  background: #fff;
+  padding:20rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.add-feedback{
+  margin-top: 150rpx;
+  width: 60%;
 }

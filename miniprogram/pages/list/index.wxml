@@ -19,3 +19,4 @@
    </scroll-view>
    <view class='js-width'></view>
 </view>
+<image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{flag}}"></image>

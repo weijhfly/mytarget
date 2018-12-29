@@ -7,6 +7,8 @@
     "pages/list/detail",
     "pages/ucenter/index",
     "pages/ucenter/feedback",
+    "pages/ucenter/addfeedback",
+    "pages/ucenter/feedbackdetail",
     "pages/ucenter/about"
   ],
   "window": {

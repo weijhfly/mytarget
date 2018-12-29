@@ -20,7 +20,12 @@ Page({
   swipeDirection: 0, //是否触发水平滑动 0:未触发 1:触发水平滑动 2:触发垂直滑动
   onLoad: function () {
   console.log('重新加载')
-   this.getData();
+
+  if (app.globalData.openid){
+    this.getData();
+  }else{
+    this.onGetOpenid();
+  }
   },
   getData:function(){
     this.pixelRatio = app.data.deviceInfo.pixelRatio;
@@ -42,6 +47,21 @@ Page({
           icon: "none",
           title: '查询记录失败',
         })
+      }
+    })
+  },
+  onGetOpenid: function () {
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        app.globalData.openid = res.result.openid;
+        this.getData();
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
       }
     })
   },
@@ -263,6 +283,8 @@ Page({
     })
   },
   onShow:function(){
-    this.getData();
+    if (app.globalData.openid) {
+      this.getData();
+    }
   }
 })

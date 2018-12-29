@@ -9,3 +9,4 @@
     <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" type='primary'>去添加</button>
   </view>
 </view>
+<image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!flag}}"></image>

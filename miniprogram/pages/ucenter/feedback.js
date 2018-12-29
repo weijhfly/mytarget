@@ -1,51 +1,45 @@
-const app = getApp();
-let util = require("../../utils/util.js");
-
 Page({
   data: {
-  
+    feedback:[],
+    loaded:false
   },
 
   onLoad: function() {
-   
+   this.getData();
   },
-  add: function (e) {
- 
-    const db = wx.cloud.database()//打开数据库连接
-    let content = e.detail.value.content;
+  getData: function () {
 
-    if(!content.length){
-      wx.showToast({
-        title: '反馈内容不能为空哦',
-        icon: 'none'
-      })
-      return false;
-    } else if (content.length < 2){
-      wx.showToast({
-        title: '请至少输入两个字',
-        icon: 'none'
-      })
-      return false;
-    }
-    db.collection("feedback").add({
-      data: {
-        content: content,
-        nickName: app.globalData.userInfo.nickName,
-        ctime: util.formatTime(new Date())
-      }, success: res => {
-        wx.showToast({
-          title: '反馈成功',
+    const db = wx.cloud.database();
+    db.collection("feedback").get({
+      success: res => {
+        this.setData({
+          loaded: true,
+          feedback: res.data,
         })
-        setTimeout(function(){
-          wx.navigateBack();
-        },1500)
       }, fail: err => {
         wx.showToast({
-          title: '反馈失败',
-          icon: 'none'
+          icon: "none",
+          title: '查询失败',
         })
       }
     })
+  },
+  addfeedback: function (e) {
 
-  }
+    wx.navigateTo({
+      url: '../ucenter/addfeedback'
+    })
+  },
+  onShow:function(){
+    if(this.data.loaded){
+      this.getData();
+    }
+  },
+  getDetail: function (e) {
+    let id = e.currentTarget.id
+
+    wx.navigateTo({
+      url: '../ucenter/feedbackdetail?id=' + id,
+    })
+  },
 })

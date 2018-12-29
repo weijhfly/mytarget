@@ -7,7 +7,8 @@ Page({
     title:'',
     content:'',
     date: '',
-    from:''
+    from:'',
+    uploading:false
   },
   onLoad: function (options) {
     
@@ -63,6 +64,7 @@ Page({
     });
   },
   comfirm: function (e) {
+    if(this.data.uploading){return false;}
 
     let date = this.data.date,
       title = this.data.title,
@@ -105,6 +107,9 @@ Page({
       return false;
     }
 
+    this.setData({
+      uploading:true
+    })
     const db = wx.cloud.database()//打开数据库连接
 
     let data = { date: date, title: title, content: content, ctime: util.formatTime(new Date())};
@@ -135,6 +140,9 @@ Page({
           })
         }, 1000)
       }, fail: err => {
+        this.setData({
+          uploading: true
+        })
         wx.showToast({
           title: '新增失败',
           icon: 'none'
@@ -161,6 +169,9 @@ Page({
            })
          }, 1000)
       }, fail: err => {
+         this.setData({
+           uploading: true
+         })
         wx.showToast({
           title: '修改失败',
         })

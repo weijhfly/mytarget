@@ -16,3 +16,16 @@ view{
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+.fixed-center{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+.wait-img{
+  width: 124rpx;
+  height:124rpx;
+}

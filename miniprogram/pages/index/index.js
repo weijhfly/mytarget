@@ -35,7 +35,7 @@ Page({
     })
     // 分享
     wx.showShareMenu({});
-    this.onGetOpenid(options.id);
+    this.onGetOpenid(options.id||'');
   },
   getUserInfo: function (e) {
     let userInfo = e.detail.userInfo;
