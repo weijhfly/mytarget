@@ -1,0 +1,15 @@
+.about-content{
+  background:#fff;
+  padding:30rpx 20rpx;
+  font-size:30rpx;
+}
+.text-title{
+  margin: 30rpx 0 10rpx;
+  font-weight: bold;
+}
+.about-author{
+  margin: 40rpx 0 20rpx;
+}
+.text-indent{
+  text-indent: 2em;
+}

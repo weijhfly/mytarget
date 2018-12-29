@@ -1,0 +1,23 @@
+textarea{
+  border:1px solid #ddd;
+  padding:10rpx 20rpx;
+  width: 400rpx;
+}
+.input-container{
+  width: 750rpx;
+  display: inline-flex;
+  margin-top: 40rpx;
+  padding-left:100rpx;
+}
+.input-container input{
+  width: 400rpx;
+  border:1rpx solid #ddd;
+  padding:10rpx 20rpx;
+}
+.input-container label{
+  margin-top:10rpx;
+}
+.comfirm {
+    margin-top:150rpx;
+    width:60%;
+}

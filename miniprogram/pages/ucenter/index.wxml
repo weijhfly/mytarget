@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="userinfo">
+    <button 
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view wx:if="{{nickName}}">{{nickName}}</view>
+    <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='login-btn'>点击登录</button>
+  </view>
+
+  <view class="menu-list" bindtap="feedback"><text class='t'>意见反馈</text></view>
+  <view class="menu-list" bindtap="about"><text class='t'>关于我的年目标</text></view>
+</view>

@@ -1,0 +1,17 @@
+page{
+  background: #fff;
+}
+.detail-content{
+ width:100%;
+ align-items:left;
+ background:#fff;
+ padding:50rpx 30rpx;
+}
+.title{
+  text-align: center;
+  font-size:45rpx;
+  margin-bottom:30rpx;
+}
+.detail-content text{
+  display: block;
+}

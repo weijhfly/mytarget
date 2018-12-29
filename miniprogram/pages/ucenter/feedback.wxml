@@ -1,0 +1,8 @@
+<view class="container">
+   <form bindsubmit='add' >
+     <textarea cols="30" rows="10" placeholder="请输入反馈内容" name="content" maxlength='200'></textarea>
+      <view class='comfirm'>
+           <button type='primary' form-type='submit'>提交</button>
+      </view>
+   </form>
+</view>

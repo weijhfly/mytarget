@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/chooseLib/chooseLib",
+    "pages/list/index",
+    "pages/list/update",
+    "pages/list/detail",
+    "pages/ucenter/index",
+    "pages/ucenter/feedback",
+    "pages/ucenter/about"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "我的年目标",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+      "selectedColor": "#E85A57",
+      "list": [
+          {
+              "pagePath": "pages/index/index",
+              "text": "首页",
+              "iconPath": "images/1.png",
+              "selectedIconPath": "images/11.png"
+          },
+          {
+              "pagePath": "pages/list/index",
+              "text": "目标清单",
+              "iconPath": "images/2.png",
+              "selectedIconPath": "images/22.png"
+          },
+          {
+              "pagePath": "pages/ucenter/index",
+              "text": "我的",
+              "iconPath": "images/3.png",
+              "selectedIconPath": "images/33.png"
+          }
+      ]
+  }
+}

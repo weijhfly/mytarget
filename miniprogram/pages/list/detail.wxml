@@ -1,0 +1,6 @@
+<view class="container">
+  <view class='detail-content'>
+    <text class='title' selectable='true'>{{title}}</text>
+    <text class='content' selectable='true'>{{content}}</text>
+  </view>
+</view>
