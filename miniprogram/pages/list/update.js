@@ -112,12 +112,11 @@ Page({
     })
     const db = wx.cloud.database()//打开数据库连接
 
-    let data = { date: date, title: title, content: content, ctime: util.formatTime(new Date())};
+    let data = { date: Number(date), title: title, content: content, ctime: util.formatTime(new Date())};
     if (!this.data.id) {//id等于空是新增数据
       this.add(db, data)  //新增记录
     } else {
-      data.id = this.data.id;
-      this.update(db, data)  //修改记录
+      this.update(db, data,this.data.id)  //修改记录
     }
   },
   add: function (db, data) {
@@ -127,6 +126,9 @@ Page({
       success: res => {
         wx.showToast({
           title: '新增成功',
+        })
+        this.setData({
+          uploading: false
         })
         let url = this.data.from ? '../index/index' :'../list/index';
         setTimeout(function () {
@@ -141,7 +143,7 @@ Page({
         }, 1000)
       }, fail: err => {
         this.setData({
-          uploading: true
+          uploading: false
         })
         wx.showToast({
           title: '新增失败',
@@ -150,14 +152,17 @@ Page({
       }
     })
   },
-  update: function (db, data) {
+  update: function (db, data, id) {
 
-    db.collection("targets").doc(data.id).update({
+    db.collection("targets").doc(id).update({
       data: data,
        success: res => {
         wx.showToast({
           title: '修改成功',
         })
+         this.setData({
+           uploading: false
+         })
          setTimeout(function () {
            wx.switchTab({
              url: '../list/index',
@@ -170,7 +175,7 @@ Page({
          }, 1000)
       }, fail: err => {
          this.setData({
-           uploading: true
+           uploading: false
          })
         wx.showToast({
           title: '修改失败',

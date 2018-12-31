@@ -9,7 +9,7 @@ App({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-        env: "test-962d3b",//这个就是环境id
+        env: "release-5cd9c5",//这个就是环境id
         traceUser: true,
       })
     }
