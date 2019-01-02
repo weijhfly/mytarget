@@ -38,10 +38,10 @@ Page({
     this.onGetOpenid(options.id||'');
   },
   getUserInfo: function (e) {
-    let userInfo = e.detail.userInfo;
+    /*let userInfo = e.detail.userInfo;
 
     console.log('点击获取');
-    app.globalData.userInfo = userInfo;
+    app.globalData.userInfo = userInfo;*/
 
     wx.navigateTo({
       url: '../list/update?from=index',

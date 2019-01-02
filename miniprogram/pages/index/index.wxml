@@ -6,7 +6,7 @@
   </view>
   <view wx:else>
     <view class='tip'>还没有今年的目标</view>
-    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" type='primary'>去添加</button>
+    <button bindtap="getUserInfo" type='primary'>去添加</button>
   </view>
 </view>
 <image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!flag}}"></image>
