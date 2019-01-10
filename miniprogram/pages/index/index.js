@@ -6,11 +6,14 @@ Page({
     flag:true,
     title:'',
     content:'',
-    id:''
+    id:'',
+    skin: 'normal-skin',
   },
 
   onLoad: function (options) {
-  
+    app.globalData.time = +new Date();
+    app.setSkin(this);
+
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
@@ -35,7 +38,7 @@ Page({
     })
     // 分享
     wx.showShareMenu({});
-    this.onGetOpenid(options.id||'');
+    this.onGetOpenid(options ? options.id:'');
   },
   getUserInfo: function (e) {
     /*let userInfo = e.detail.userInfo;
@@ -71,10 +74,16 @@ Page({
     })
   },
   onShow:function(){
-    console.log('首页展示');
-    if (app.globalData.openid){
-      this.getData();
+    var time = +new Date();
+
+    if (time - app.globalData.time > 1e3){
+      console.log('index-show');
+      app.setSkin(this);
+      if (app.globalData.openid) {
+        this.getData();
+      }
     }
+    
   },
   onGetOpenid: function (id) {
     if(id){

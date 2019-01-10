@@ -1,19 +1,16 @@
 .userinfo{
   height: 140rpx;
   width: 100%;
-  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-left: none;
   border-right: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  transition: all 300ms ease;
   margin-bottom: 20rpx;
 }
 .menu-list{
   padding:20rpx;
-  background-color:#fff;
   text-align:left;
   width:100%;
   border-bottom: 1px solid #ddd;
@@ -55,4 +52,64 @@
   background:none;
   line-height:65rpx;
   font-size:30rpx;
+}
+.background-none{
+  background-image: none;
+}
+.skins-box{
+  width: 80%;
+  border-radius: 10rpx;
+  padding:30rpx 30rpx 0;
+  font-size: 24rpx;
+  text-align: center;
+}
+.skins-box .skin-item{
+  float: left;
+  width: 25%;
+  margin-bottom: 30rpx;
+}
+.skin-item view{
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 100%;
+  background: #f6f6f6;
+  border:2rpx solid transparent;
+}
+.dark view{
+  background: #000000;
+  color: #fff;
+}
+.red view{
+  background: #f9e5ee;
+  color: #8e5a54;
+}
+.yellow view{
+  background: #f6e1c9;
+  color: #8c6031;
+}
+.green view{
+  background: #e3eabb;
+  color: #5d6021;
+}
+.cyan view{
+  background: #d1e9cd;
+  color: #417036;
+}
+.blue view{
+  background: #bbe4e3;
+  color: #2e6167;
+}
+.active view{
+  border-color:  #4d8fe7;
+}
+.mask{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 5;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
 }

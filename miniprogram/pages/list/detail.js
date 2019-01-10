@@ -1,11 +1,16 @@
+var app = getApp();
+
 Page({
   data: {
     title:'',
-    content:''
+    content: '',
+    skin: 'normal-skin',
   },
 
   onLoad: function (options) {
-    console.log(options)
+    app.globalData.time = +new Date();
+    app.setSkin(this); 
+
     const db = wx.cloud.database();
     db.collection("targets").where({
       _id: options.id
@@ -23,5 +28,12 @@ Page({
     })
     // 分享
     wx.showShareMenu({});
+  },
+  onShow: function () {
+    var time = +new Date();
+
+    if (time - app.globalData.time > 1e3) {
+      app.setSkin(this);
+    }
   }
 })

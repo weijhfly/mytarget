@@ -1,10 +1,6 @@
-page{
-  background: #fff;
-}
 .detail-content{
  width:100%;
  align-items:left;
- background:#fff;
  padding:50rpx 30rpx;
 }
 .title{

@@ -1,10 +1,16 @@
+const app = getApp();
+
 Page({
   data: {
     feedback:[],
-    loaded:false
+    loaded:false,
+    skin: 'normal-skin',
   },
 
   onLoad: function() {
+    app.globalData.time = +new Date();
+    app.setSkin(this);
+   
    this.getData();
   },
   getData: function () {
@@ -30,8 +36,11 @@ Page({
       url: '../ucenter/addfeedback'
     })
   },
-  onShow:function(){
-    if(this.data.loaded){
+  onShow: function () {
+    var time = +new Date();
+
+    if (time - app.globalData.time > 1e3) {
+      app.setSkin(this);
       this.getData();
     }
   },

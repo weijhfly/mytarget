@@ -1,22 +1,24 @@
 <!--index.wxml-->
-<view class="container">
-    <view class='tip' wx:if="{{!targetList.length&&flag}}">目标清单为空</view>
-     <scroll-view style='height:{{height}}px;' scroll-y='{{scrollY}}' class='target-list' bindscroll = 'onScroll'>
-       <view wx:for="{{targetList}}" wx:key="item._id"  class='target-item' animation='{{item.wrapAnimation}}'> 
-            <view id='{{item._id}}' class='target' animation='{{item.animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend' bindtap='getDetail'>
-                <text class='target-title'>{{item.title}}</text>
-            </view>
-            <view class='target-menu'>
-                <view id='{{item._id}}' class='menu-edit' bindtap='onUpdate'>
-                    编辑
-                </view>
-                <view id='{{item._id}}' class='menu-delete' bindtap='onDeleteMsgTap'>
-                    删除
-                </view>
-            </view>
-       </view>
-       <button type='primary' class='add-target' bindtap="update">添加目标</button>
-   </scroll-view>
-   <view class='js-width'></view>
+<view class="page" id='{{skin}}'>  
+  <view class="container">
+      <view class='tip' wx:if="{{!targetList.length&&flag}}">目标清单为空</view>
+      <scroll-view style='height:{{height}}px;' scroll-y='{{scrollY}}' class='target-list' bindscroll = 'onScroll'>
+        <view wx:for="{{targetList}}" wx:key="item._id"  class='target-item borderColor' animation='{{item.wrapAnimation}}'> 
+              <view id='{{item._id}}' class='target bColor' animation='{{item.animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend' bindtap='getDetail'>
+                  <text class='target-title'>{{item.title}}</text>
+              </view>
+              <view class='target-menu'>
+                  <view id='{{item._id}}' class='menu-edit' bindtap='onUpdate'>
+                      编辑
+                  </view>
+                  <view id='{{item._id}}' class='menu-delete' bindtap='onDeleteMsgTap'>
+                      删除
+                  </view>
+              </view>
+        </view>
+        <button type='primary' class='add-target' bindtap="update">添加目标</button>
+    </scroll-view>
+    <view class='js-width'></view>
+  </view>
+  <image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{flag}}"></image>
 </view>
-<image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{flag}}"></image>

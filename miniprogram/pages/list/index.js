@@ -1,4 +1,5 @@
 var app = getApp();
+
 Page({
   data: {
     targetList: [],
@@ -6,7 +7,8 @@ Page({
     scrollY: true,
     maxMoveLeft:0,
     correctMoveLeft:0,
-    flag:false
+    flag: false,
+    skin: 'normal-skin',
   },
   swipeCheckX: 15, //激活检测滑动的阈值
   swipeCheckState: 0, //0未激活 1激活
@@ -19,8 +21,9 @@ Page({
   touchStartState: 0, // 开始触摸时的状态 0 未显示菜单 1 显示菜单
   swipeDirection: 0, //是否触发水平滑动 0:未触发 1:触发水平滑动 2:触发垂直滑动
   onLoad: function () {
-  console.log('重新加载')
-
+  
+    app.globalData.time = +new Date();
+    app.setSkin(this);
   if (app.globalData.openid){
     this.getData();
   }else{
@@ -283,8 +286,15 @@ Page({
     })
   },
   onShow:function(){
-    if (app.globalData.openid) {
-      this.getData();
+    var time = +new Date();
+
+    if (time - app.globalData.time > 1e3) {
+      console.log('list-show');
+      app.setSkin(this); 
+
+      if (app.globalData.openid) {
+        this.getData();
+      }
     }
   }
 })

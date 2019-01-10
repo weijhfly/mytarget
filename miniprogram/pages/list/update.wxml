@@ -1,19 +1,22 @@
-<view class="container">
-      <view class='input-container'>
-          <picker mode="date" value="{{date}}-01-01" start="1970" end="2100" bindchange="bindDateChange" fields="year">
-          <view class="picker">
-            <label>选择年份：</label>{{date}}
-          </view>
-        </picker>
-      </view>
-      <view class='input-container'>
-          <label>标题：</label>
-          <input type="text" placeholder="请输入标题" value='{{title}}' bindinput="getTitle" maxlength='20'/>
-      </view>
-      <view class='input-container'>
-          <label>内容：</label>
-          <textarea cols="30" rows="10" placeholder="请输入内容" name="content" maxlength='1000' value='{{content}}' wrap="hard" bindinput="getContent"></textarea>
-      </view>
-      <button class='comfirm' type='primary' bindtap='comfirm'>保存</button>
+<view class="page" id='{{skin}}'> 
+  <view class="container">
+        <view class='input-container'>
+            <picker mode="date" value="{{date}}-01-01" start="1970" end="2100" bindchange="bindDateChange" fields="year">
+            <view class="picker">
+              <label>选择年份：</label>{{date}}
+            </view>
+          </picker>
+        </view>
+        <view class='input-container'>
+            <label>标题：</label>
+            <input type="text" class='borderColor' placeholder="请输入标题" value='{{title}}' bindinput="getTitle" maxlength='20'/>
+        </view>
+        <view class='input-container'>
+            <label>内容：</label>
+            <textarea class='borderColor' cols="30" rows="10" placeholder="请输入内容" name="content" maxlength='1000' value='{{content}}' wrap="hard" bindinput="getContent"></textarea>
+        </view>
+        <button class='comfirm' type='primary' bindtap='comfirm'>保存</button>
+        <view class='h40'></view>
+  </view>
+  <image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!uploading}}"></image>
 </view>
-<image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!uploading}}"></image>

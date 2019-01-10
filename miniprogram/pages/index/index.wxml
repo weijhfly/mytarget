@@ -1,12 +1,14 @@
 <!--index.wxml-->
-<view class="container" hidden="{{flag}}">
-  <view class='detail-content' wx:if="{{title}}">
-    <text class='title' selectable='true'>{{title}}</text>
-    <text class='content' selectable='true'>{{content}}</text>
+<view class="page" id='{{skin}}'>  
+  <view class="container" hidden="{{flag}}">
+    <view class='detail-content bColor' wx:if="{{title}}">
+      <text class='title' selectable='true'>{{title}}</text>
+      <text class='content' selectable='true'>{{content}}</text>
+    </view>
+    <view wx:else>
+      <view class='tip'>还没有今年的目标</view>
+      <button bindtap="getUserInfo" type='primary'>去添加</button>
+    </view>
   </view>
-  <view wx:else>
-    <view class='tip'>还没有今年的目标</view>
-    <button bindtap="getUserInfo" type='primary'>去添加</button>
-  </view>
+  <image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!flag}}"></image>
 </view>
-<image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!flag}}"></image>

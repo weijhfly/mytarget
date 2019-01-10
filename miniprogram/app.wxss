@@ -1,9 +1,15 @@
 /**app.wxss**/
 page {
-  background: #f6f6f6;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+.page{
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6;
 }
 .container {
   display: flex;
@@ -20,6 +26,7 @@ view{
 	position: fixed;
 	left: 50%;
 	top: 50%;
+  z-index: 100;
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	-moz-transform: translateX(-50%) translateY(-50%);
 	-ms-transform: translateX(-50%) translateY(-50%);
@@ -28,4 +35,87 @@ view{
 .wait-img{
   width: 124rpx;
   height:124rpx;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.bColor{
+  background: #fff;
+}
+.w100{
+  width: 100%;
+}
+.h40{
+  height: 40rpx;
+}
+/* 主题颜色 */
+
+/* 深黑 */
+#dark-skin{
+  background: #000;
+  color: #999;
+}
+#dark-skin .bColor{
+  background: #333;
+}
+#dark-skin .borderColor{
+  border-color:#999;
+}
+/* 粉红 */
+#red-skin{
+  background: #f9e5ee;
+  color: #8e5a54;
+}
+#red-skin .bColor{
+  background: #f9e5ee;
+}
+#red-skin .borderColor{
+  border-color:#8e5a54;
+}
+/* 橘黄 */
+#yellow-skin{
+  background: #f6e1c9;
+  color: #8c6031;
+}
+#yellow-skin .bColor{
+  background: #f6e1c9;
+}
+#yellow-skin .borderColor{
+  border-color:#8c6031;
+}
+/* 草绿 */
+#green-skin{
+  background: #e3eabb;
+  color: #5d6021;
+}
+#green-skin .bColor{
+  background: #e3eabb;
+}
+#green-skin .borderColor{
+  border-color:#5d6021;
+}
+/* 青葱 */
+#cyan-skin{
+  background: #d1e9cd;
+  color: #417036;
+}
+#cyan-skin .bColor{
+  background: #d1e9cd;
+}
+#cyan-skin .borderColor{
+  border-color:#417036;
+}
+/* 水蓝 */
+#blue-skin{
+  background: #bbe4e3;
+  color: #2e6167;
+}
+#blue-skin .bColor{
+  background: #bbe4e3;
+}
+#blue-skin .borderColor{
+  border-color:#2e6167;
 }

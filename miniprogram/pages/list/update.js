@@ -8,9 +8,12 @@ Page({
     content:'',
     date: '',
     from:'',
-    uploading:false
+    uploading: false,
+    skin: 'normal-skin',
   },
   onLoad: function (options) {
+    app.globalData.time = +new Date();
+    app.setSkin(this);
     
     if (options.id) {
       const db = wx.cloud.database();
@@ -189,9 +192,15 @@ Page({
       date: e.detail.value
     })
   },
-  onShow:function(){
+  onShow: function () {
     this.setData({
       date: this.data.date
     })
+
+    var time = +new Date();
+
+    if (time - app.globalData.time > 1e3) {
+      app.setSkin(this);
+    }
   }
 })

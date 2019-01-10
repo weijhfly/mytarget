@@ -1,8 +1,10 @@
-<view class="container">
-  <view class='tip' wx:if="{{!feedback.length&&loaded}}">反馈信息为空</view>
-   <view class='feedback' wx:for="{{feedback}}" wx:key="item._id" bindtap="getDetail" id='{{item._id}}'>
-    <view class='fl'>{{item.content}}</view>
-    <view class='fr' wx:if="{{item.reply}}">作者已回复</view>
-   </view>
-   <button type='primary' class='add-feedback' bindtap="addfeedback" hidden="{{!loaded}}">添加反馈</button>
+<view class="page" id='{{skin}}'>  
+  <view class="container">
+    <view class='tip' wx:if="{{!feedback.length&&loaded}}">反馈信息为空</view>
+    <view class='feedback bColor borderColor' wx:for="{{feedback}}" wx:key="item._id" bindtap="getDetail" id='{{item._id}}'>
+      <view class='fl'>{{item.content}}</view>
+      <view class='fr' wx:if="{{item.reply}}">作者已回复</view>
+    </view>
+    <button type='primary' class='add-feedback' bindtap="addfeedback" hidden="{{!loaded}}">添加反馈</button>
+  </view>
 </view>

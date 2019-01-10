@@ -1,6 +1,8 @@
-<view class="container">
-  <view class='detail-content' hidden='{{!loaded}}'>
-    <view>反馈内容：{{content}}</view>
-     <view class='reply'>作者回复：{{reply || '暂无'}}</view>
+<view class="page" id='{{skin}}'>
+  <view class="container">
+    <view class='detail-content bColor' hidden='{{!loaded}}'>
+      <view>反馈内容：{{content}}</view>
+      <view class='reply'>作者回复：{{reply || '暂无'}}</view>
+    </view>
   </view>
 </view>

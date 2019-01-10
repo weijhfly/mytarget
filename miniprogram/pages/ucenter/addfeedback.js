@@ -3,11 +3,13 @@ let util = require("../../utils/util.js");
 
 Page({
   data: {
-    uploading: false
+    uploading: false,
+    skin: 'normal-skin',
   },
 
   onLoad: function() {
-   
+    app.globalData.time = +new Date();
+    app.setSkin(this); 
   },
   add: function (e) {
     if (this.data.uploading) { return false; }
@@ -54,5 +56,12 @@ Page({
       }
     })
 
+  },
+  onShow: function () {
+    var time = +new Date();
+
+    if (time - app.globalData.time > 1e3) {
+      app.setSkin(this);
+    }
   }
 })
