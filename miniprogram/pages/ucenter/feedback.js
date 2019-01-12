@@ -8,7 +8,6 @@ Page({
   },
 
   onLoad: function() {
-    app.globalData.time = +new Date();
     app.setSkin(this);
    
    this.getData();
@@ -35,14 +34,6 @@ Page({
     wx.navigateTo({
       url: '../ucenter/addfeedback'
     })
-  },
-  onShow: function () {
-    var time = +new Date();
-
-    if (time - app.globalData.time > 1e3) {
-      app.setSkin(this);
-      this.getData();
-    }
   },
   getDetail: function (e) {
     let id = e.currentTarget.id

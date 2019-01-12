@@ -1,5 +1,4 @@
 .about-content{
-  background:#fff;
   padding:30rpx 20rpx;
   font-size:30rpx;
 }

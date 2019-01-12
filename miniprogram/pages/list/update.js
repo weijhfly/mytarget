@@ -12,7 +12,6 @@ Page({
     skin: 'normal-skin',
   },
   onLoad: function (options) {
-    app.globalData.time = +new Date();
     app.setSkin(this);
     
     if (options.id) {
@@ -133,16 +132,9 @@ Page({
         this.setData({
           uploading: false
         })
-        let url = this.data.from ? '../index/index' :'../list/index';
+        //let url = this.data.from ? '../index/index' :'../list/index';
         setTimeout(function () {
-          wx.switchTab({
-            url: url,
-            success: function (e) {
-              var page = getCurrentPages().pop();
-              if (page == undefined || page == null) return;
-              page.onLoad();
-            }
-          })
+          wx.navigateBack();
         }, 1000)
       }, fail: err => {
         this.setData({
@@ -167,14 +159,7 @@ Page({
            uploading: false
          })
          setTimeout(function () {
-           wx.switchTab({
-             url: '../list/index',
-             success: function (e) {
-               var page = getCurrentPages().pop();
-               if (page == undefined || page == null) return;
-               page.onLoad();
-             }
-           })
+           wx.navigateBack();
          }, 1000)
       }, fail: err => {
          this.setData({
@@ -191,16 +176,5 @@ Page({
     this.setData({
       date: e.detail.value
     })
-  },
-  onShow: function () {
-    this.setData({
-      date: this.data.date
-    })
-
-    var time = +new Date();
-
-    if (time - app.globalData.time > 1e3) {
-      app.setSkin(this);
-    }
   }
 })

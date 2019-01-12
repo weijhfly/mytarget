@@ -10,5 +10,6 @@
       <button bindtap="getUserInfo" type='primary'>去添加</button>
     </view>
   </view>
+  <view>{{time}}</view>
   <image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!flag}}"></image>
 </view>

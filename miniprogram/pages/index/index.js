@@ -7,11 +7,10 @@ Page({
     title:'',
     content:'',
     id:'',
-    skin: 'normal-skin',
+    skin: 'normal-skin'
   },
 
   onLoad: function (options) {
-    app.globalData.time = +new Date();
     app.setSkin(this);
 
     if (!wx.cloud) {
@@ -20,7 +19,6 @@ Page({
       })
       return
     }
-
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -72,18 +70,6 @@ Page({
         })
       }
     })
-  },
-  onShow:function(){
-    var time = +new Date();
-
-    if (time - app.globalData.time > 1e3){
-      console.log('index-show');
-      app.setSkin(this);
-      if (app.globalData.openid) {
-        this.getData();
-      }
-    }
-    
   },
   onGetOpenid: function (id) {
     if(id){

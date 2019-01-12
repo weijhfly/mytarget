@@ -22,13 +22,12 @@ Page({
   swipeDirection: 0, //是否触发水平滑动 0:未触发 1:触发水平滑动 2:触发垂直滑动
   onLoad: function () {
   
-    app.globalData.time = +new Date();
     app.setSkin(this);
-  if (app.globalData.openid){
-    this.getData();
-  }else{
-    this.onGetOpenid();
-  }
+    if (app.globalData.openid){
+      this.getData();
+    }else{
+      this.onGetOpenid();
+    }
   },
   getData:function(){
     this.pixelRatio = app.data.deviceInfo.pixelRatio;
@@ -176,18 +175,19 @@ Page({
     this.deleteMsgItem(e);
   },
   getItemIndex: function (id) {
-    console.log(id)
     var targetList = this.data.targetList;
     for (var i = 0; i < targetList.length; i++) {
-      if (targetList[i]._id === id) {
+      if (targetList[i]._id == id) {
         return i;
       }
     }
+    console.log('找不到对应的项')
+    this.onLoad();
     return -1;
   },
   deleteMsgItem: function (e) {
     let _this = this;
-
+    
     wx.showModal({
       title: '提示',
       content: '确定删除吗？',
@@ -201,7 +201,7 @@ Page({
               wx.showToast({
                 title: '删除成功',
               })
-              console.log('删除成功')
+              
               _this.onLoad();
               _this.touchStartState = 1;
               _this.showState = 0;
@@ -240,6 +240,7 @@ Page({
   },
   animationMsgItem: function (id, animation) {
     var index = this.getItemIndex(id);
+    if(index == -1){return;}
     var param = {};
     var indexString = 'targetList[' + index + '].animation';
     param[indexString] = animation.export();
@@ -247,6 +248,7 @@ Page({
   },
   animationMsgWrapItem: function (id, animation) {
     var index = this.getItemIndex(id);
+    if(index == -1){return;}
     var param = {};
     var indexString = 'targetList[' + index + '].wrapAnimation';
     param[indexString] = animation.export();
@@ -284,17 +286,5 @@ Page({
     wx.navigateTo({
       url: '../list/detail?id=' + id,
     })
-  },
-  onShow:function(){
-    var time = +new Date();
-
-    if (time - app.globalData.time > 1e3) {
-      console.log('list-show');
-      app.setSkin(this); 
-
-      if (app.globalData.openid) {
-        this.getData();
-      }
-    }
   }
 })

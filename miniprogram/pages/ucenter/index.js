@@ -19,8 +19,8 @@ Page({
     ]
   },
   onLoad: function() {
-    app.globalData.time = +new Date();
     app.setSkin(this);
+
     if (app.globalData.userInfo){
       this.setData({
         nickName: app.globalData.userInfo.nickName,
@@ -60,23 +60,23 @@ Page({
   setSkin:function(e){
     var skin = e.target.dataset.flag;
 
+    skin = skin + '-skin';
+
+    app.globalData.skin = skin;
+   
+    app.setSkin(this,1);
+
     this.setData({
-      skin: skin + '-skin',
-      openSet:false
+      openSet: false
     })
 
     wx.setStorage({
       key: "skin",
-      data: skin + '-skin'
+      data: skin
     })
 
-    app.setSkin(this);
-  },
-  onShow: function () {
-    var time = +new Date();
-
-    if (time - app.globalData.time > 1e3) {
-      app.setSkin(this);
-    }
+    app.globalData.pages.forEach(function(v){
+      app.setSkin(v,1);
+    })
   }
 })

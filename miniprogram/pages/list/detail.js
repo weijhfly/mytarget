@@ -8,7 +8,6 @@ Page({
   },
 
   onLoad: function (options) {
-    app.globalData.time = +new Date();
     app.setSkin(this); 
 
     const db = wx.cloud.database();
@@ -28,12 +27,5 @@ Page({
     })
     // 分享
     wx.showShareMenu({});
-  },
-  onShow: function () {
-    var time = +new Date();
-
-    if (time - app.globalData.time > 1e3) {
-      app.setSkin(this);
-    }
   }
 })

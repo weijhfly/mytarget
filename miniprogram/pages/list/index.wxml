@@ -11,7 +11,7 @@
                   <view id='{{item._id}}' class='menu-edit' bindtap='onUpdate'>
                       编辑
                   </view>
-                  <view id='{{item._id}}' class='menu-delete' bindtap='onDeleteMsgTap'>
+                  <view id='{{item._id}}' data-year='{{item.date}}' class='menu-delete' bindtap='onDeleteMsgTap'>
                       删除
                   </view>
               </view>

@@ -8,7 +8,6 @@ Page({
   },
 
   onLoad: function() {
-    app.globalData.time = +new Date();
     app.setSkin(this); 
   },
   add: function (e) {
@@ -56,12 +55,5 @@ Page({
       }
     })
 
-  },
-  onShow: function () {
-    var time = +new Date();
-
-    if (time - app.globalData.time > 1e3) {
-      app.setSkin(this);
-    }
   }
 })
