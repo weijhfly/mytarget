@@ -2,10 +2,7 @@
 <view class="page" id='{{skin}}'>  
   <view class="container">
     <view class="userinfo bColor">
-      <button 
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-      ></button>
+      <image class="userinfo-avatar" src='{{avatarUrl}}'></image>
       <view wx:if="{{nickName}}">{{nickName}}</view>
       <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='login-btn'>我的信息</button>
     </view>
@@ -16,10 +13,15 @@
       <view class="menu-list borderColor" bindtap="showSkins"><text class='t'>设置背景色</text></view>
     </view>
   </view>
-
+  <wxs module="util">
+    var sub = function(val,flag) {
+        return val.substring(0,val.indexOf(flag));
+    }
+    module.exports.sub = sub;
+  </wxs>
   <view class='fixed-center skins-box bColor' hidden="{{!openSet}}">
-    <view wx:for="{{skinList}}" wx:key="item.flag" class='skin-item {{item.flag}} {{skin==item.flag+"-skin"?"active":""}}'>
-      <view bindtap="setSkin" data-flag='{{item.flag}}'>{{item.name}}</view> 
+    <view wx:for="{{skinList}}" wx:for-index="index" wx:key="index" class='skin-item {{util.sub(index,"-")}} {{skin==index?"active":""}}'>
+      <view bindtap="setSkin" data-flag='{{index}}'>{{item.tag}}</view> 
     </view>
   </view>
   <view class='mask' hidden="{{!openSet}}" bindtap="showSkins" data-flag='false'></view>

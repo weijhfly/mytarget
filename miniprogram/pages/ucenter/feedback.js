@@ -4,7 +4,7 @@ Page({
   data: {
     feedback:[],
     loaded:false,
-    skin: 'normal-skin',
+    skin: app.data.skin,
   },
 
   onLoad: function() {

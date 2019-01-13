@@ -25,12 +25,7 @@
   height: 100rpx;
   margin: 20rpx;
   border-radius: 50%;
-  background-size: cover;
-  background-color: white;
-}
-
-.userinfo-avatar:after {
-  border: none;
+  border:none;
 }
 
 .userinfo-nickname {

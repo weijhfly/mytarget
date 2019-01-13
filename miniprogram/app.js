@@ -2,39 +2,47 @@
 App({
   data: {
     deviceInfo: {},
+    skin: wx.getStorageSync('skin'),
+    index: 'pages/index/index',
     skins: {
       'normal-skin': {
+        tag:'默认',
         color: '#000000',
         background: '#f6f6f6'
       },
       'dark-skin': {
+        tag: '深黑',
         color: '#ffffff',
         background: '#000000'
       },
       'red-skin': {
+        tag: '粉红',
         color: '#8e5a54',
         background: '#f9e5ee'
       },
       'yellow-skin': {
+        tag: '橘黄',
         color: '#8c6031',
         background: '#f6e1c9'
       },
       'green-skin': {
+        tag: '草绿',
         color: '#5d6021',
         background: '#e3eabb'
       },
       'cyan-skin': {
+        tag: '青葱',
         color: '#417036',
         background: '#d1e9cd'
       },
       'blue-skin': {
+        tag:'水蓝',
         color: '#2e6167',
         background: '#bbe4e3'
       }
     }
   },
   onLaunch: function () {
-    
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -51,36 +59,41 @@ App({
   setSkin:function(that,flag){
     var app = this;
 
-    if (app.globalData.skin){
-      if (that.data.skin != app.globalData.skin){
-        app.master(app.globalData.skin, that);
-      }
-    }else{
-      wx.getStorage({
-        key: 'skin',
-        success: function (res) {
-          if (res) {
-            app.master(res.data, that);
-            app.globalData.skin = res.data;
-          }
-        }
+    if(that.data.skin != app.data.skin){
+      that.setData({
+        skin: app.data.skin
       })
     }
+    app.master();
 
     if(!flag){
       app.globalData.pages.push(that);
       app.globalData.time = +new Date();
-      that.onShow = function(){
-        if(['pages/index/index','pages/list/index','pages/ucenter/feedback'].indexOf(this.route) != -1){
-          this.getData();
-        }
+
+      if(that.route != app.data.index){
+        app.globalData.pages[0].setData({
+          shareId:''
+        })
+      }
+      that.onShow = function(e){
+
         if (+new Date() - app.globalData.time > 1e3){
-          app.master(app.globalData.skin, false);
+          if ([app.data.index, 'pages/list/index', 'pages/ucenter/feedback'].indexOf(this.route) != -1) {
+            if (app.globalData.openid) {
+              if (this.route == app.data.index && !this.data.shareId){
+                this.getData();
+              }else{
+                this.getData();
+              }
+            }
+          }
+          app.master();
         }
       }
     }
   },
-  master: function (skin,flag){
+  master: function (){
+    var skin = this.data.skin;
 
     if(!skin){return;}
 
@@ -95,16 +108,10 @@ App({
       frontColor: fcolor,
       backgroundColor: bcolor,
     })
-    if(flag != false){
-      flag.setData({
-        skin: skin
-      })
-
-      wx.setTabBarStyle({
-        color: tcolor,
-        backgroundColor: bcolor,
-      })
-    }
+    wx.setTabBarStyle({
+      color: tcolor,
+      backgroundColor: bcolor,
+    })
     wx.setBackgroundColor({
       backgroundColor: bcolor,
       backgroundColorTop: bcolor, // 顶部窗口的背景色为白色

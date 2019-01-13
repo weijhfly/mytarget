@@ -9,7 +9,7 @@ Page({
     date: '',
     from:'',
     uploading: false,
-    skin: 'normal-skin',
+    skin: app.data.skin,
   },
   onLoad: function (options) {
     app.setSkin(this);

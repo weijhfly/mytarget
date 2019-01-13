@@ -4,7 +4,7 @@ let util = require("../../utils/util.js");
 Page({
   data: {
     uploading: false,
-    skin: 'normal-skin',
+    skin: app.data.skin,
   },
 
   onLoad: function() {

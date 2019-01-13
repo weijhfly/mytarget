@@ -7,12 +7,13 @@ Page({
     title:'',
     content:'',
     id:'',
-    skin: 'normal-skin'
+    shareId:'',
+    skin: app.data.skin
   },
 
   onLoad: function (options) {
-    app.setSkin(this);
-
+    app.setSkin(this); 
+    
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
@@ -50,6 +51,7 @@ Page({
   },
   getData:function(){
     const db = wx.cloud.database();
+
     db.collection("targets").where({
       _openid: app.globalData.openid,
       date: new Date().getFullYear()
@@ -73,6 +75,9 @@ Page({
   },
   onGetOpenid: function (id) {
     if(id){
+      this.setData({
+        shareId:id
+      })
       const db = wx.cloud.database();
       db.collection("targets").where({
         _id: id

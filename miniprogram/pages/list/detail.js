@@ -4,7 +4,7 @@ Page({
   data: {
     title:'',
     content: '',
-    skin: 'normal-skin',
+    skin: app.data.skin,
   },
 
   onLoad: function (options) {

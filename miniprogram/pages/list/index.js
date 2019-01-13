@@ -8,7 +8,7 @@ Page({
     maxMoveLeft:0,
     correctMoveLeft:0,
     flag: false,
-    skin: 'normal-skin',
+    skin: app.data.skin,
   },
   swipeCheckX: 15, //激活检测滑动的阈值
   swipeCheckState: 0, //0未激活 1激活
@@ -21,7 +21,7 @@ Page({
   touchStartState: 0, // 开始触摸时的状态 0 未显示菜单 1 显示菜单
   swipeDirection: 0, //是否触发水平滑动 0:未触发 1:触发水平滑动 2:触发垂直滑动
   onLoad: function () {
-  
+    
     app.setSkin(this);
     if (app.globalData.openid){
       this.getData();
