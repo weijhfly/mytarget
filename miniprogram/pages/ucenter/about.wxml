@@ -1,6 +1,11 @@
 <view class="page" id='{{skin}}'>
+  <view class='header'>
+    <navigator class='head-return' open-type='navigateBack'>
+      <wux-icon type="ios-arrow-back" color="{{skin == 'dark-skin' ? '#ddd':'#000'}}"/>
+    </navigator>
+    关于小程序</view>  
   <view class="container">
-    <view class='about-content bColor'>
+    <view class='about-content'>
       <view class='text-title'>创作目的：</view>
       <view class='text-indent'>每当年末、年初，大家都会去分享当年或次年的计划、目标，但是这些计划/目标往往没能很好地存放、归类到一起，也没有一个易于分享的途径，这样也会导致我们对人生目标没有足够的重视，针对这些问题，该小程序诞生的目的便源于此。</view>
 

@@ -1,4 +1,9 @@
 <view class="page" id='{{skin}}'>
+  <view class='header'>
+    <navigator class='head-return' open-type='navigateBack'>
+      <wux-icon type="ios-arrow-back" color="{{skin == 'dark-skin' ? '#ddd':'#000'}}"/>
+    </navigator>
+    添加反馈</view>  
   <view class="container">
     <form bindsubmit='add' >
       <textarea class='bColor borderColor' cols="30" rows="10" placeholder="请输入反馈内容" name="content" maxlength='200'></textarea>

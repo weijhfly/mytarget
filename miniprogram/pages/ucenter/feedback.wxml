@@ -1,10 +1,14 @@
-<view class="page" id='{{skin}}'>  
-  <view class="container">
+<view class="page" id='{{skin}}'>
+  <view class='header'>
+    <navigator class='head-return' open-type='navigateBack'>
+      <wux-icon type="ios-arrow-back" color="{{skin == 'dark-skin' ? '#ddd':'#000'}}"/>
+    </navigator>
+  反馈列表</view>    
+  <view class="container list">
     <view class='tip' wx:if="{{!feedback.length&&loaded}}">反馈信息为空</view>
-    <view class='feedback bColor borderColor' wx:for="{{feedback}}" wx:key="item._id" bindtap="getDetail" id='{{item._id}}'>
-      <view class='fl'>{{item.content}}</view>
-      <view class='fr' wx:if="{{item.reply}}">作者已回复</view>
-    </view>
+    <wux-cell-group wx:if="{{feedback.length>0}}">
+        <wux-cell title="{{item.content}}" is-link wx:for="{{feedback}}" wx:key="item._id" bindtap="ctrl" id='{{item._id}}' extra="{{item.reply}}"></wux-cell>
+    </wux-cell-group>
     <button type='primary' class='add-feedback' bindtap="addfeedback" hidden="{{!loaded}}">添加反馈</button>
   </view>
 </view>

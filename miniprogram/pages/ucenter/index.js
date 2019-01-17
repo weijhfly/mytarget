@@ -24,16 +24,6 @@ Page({
       })
     }
   },
-  feedback:function(){
-    wx.navigateTo({
-      url: '../ucenter/feedback',
-    })
-  },
-  about: function () {
-    wx.navigateTo({
-      url: '../ucenter/about',
-    })
-  },
   getUserInfo: function (e) {
     let userInfo = e.detail.userInfo;
     

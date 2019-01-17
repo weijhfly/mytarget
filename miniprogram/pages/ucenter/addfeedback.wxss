@@ -1,5 +1,5 @@
 textarea{
-  border:2px solid #eee;
+  border:1rpx solid #eee;
   margin-top:50rpx;
   padding:10rpx 20rpx;
 }

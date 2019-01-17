@@ -1,6 +1,11 @@
 <view class="page" id='{{skin}}'>
+  <view class='header'>
+    <navigator class='head-return' open-type='navigateBack'>
+      <wux-icon type="ios-arrow-back" color="{{skin == 'dark-skin' ? '#ddd':'#000'}}"/>
+    </navigator>
+    反馈详情</view>  
   <view class="container">
-    <view class='detail-content bColor' hidden='{{!loaded}}'>
+    <view class='detail-content' hidden='{{!loaded}}'>
       <view>反馈内容：{{content}}</view>
       <view class='reply'>作者回复：{{reply || '暂无'}}</view>
     </view>

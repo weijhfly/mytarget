@@ -1,7 +1,6 @@
 //app.js
 App({
   data: {
-    deviceInfo: {},
     skin: wx.getStorageSync('skin'),
     index: 'pages/index/index',
     skins: {
@@ -12,7 +11,7 @@ App({
       },
       'dark-skin': {
         tag: '深黑',
-        color: '#ffffff',
+        color: '#999999',
         background: '#000000'
       },
       'red-skin': {
@@ -54,7 +53,6 @@ App({
 
     this.globalData = {};
     this.globalData.pages = [];
-    this.data.deviceInfo = wx.getSystemInfoSync();
   },
   setSkin:function(that,flag){
     var app = this;
@@ -75,14 +73,15 @@ App({
           shareId:''
         })
       }
-      that.onShow = function(e){
-
+      that.onShow = function(){
+       
         if (+new Date() - app.globalData.time > 1e3){
           if ([app.data.index, 'pages/list/index', 'pages/ucenter/feedback'].indexOf(this.route) != -1) {
             if (app.globalData.openid) {
               if (this.route == app.data.index && !this.data.shareId){
                 this.getData();
               }else{
+                
                 this.getData();
               }
             }
@@ -97,25 +96,19 @@ App({
 
     if(!skin){return;}
 
-    var fcolor = skin == 'dark-skin' ? '#ffffff' : '#000000',
-      skins = this.data.skins,
-      item = skins[skin],
-      tcolor = item.color,
-      bcolor = item.background;
+    var skins = this.data.skins,
+        item = skins[skin],
+        tcolor = item.color,
+        bcolor = item.background;
 
-    //setNavigationBarColor、setBackgroundColor只对当前页有效，所以每次都要设置
-    wx.setNavigationBarColor({
-      frontColor: fcolor,
-      backgroundColor: bcolor,
-    })
     wx.setTabBarStyle({
       color: tcolor,
       backgroundColor: bcolor,
     })
     wx.setBackgroundColor({
       backgroundColor: bcolor,
-      backgroundColorTop: bcolor, // 顶部窗口的背景色为白色
-      backgroundColorBottom: bcolor, // 底部窗口的背景色为白色
+      backgroundColorTop: bcolor, 
+      backgroundColorBottom: bcolor,
     })
   }
 })

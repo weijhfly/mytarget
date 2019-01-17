@@ -16,29 +16,36 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "我的年目标",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "tabBar": {
-      "selectedColor": "#E85A57",
-      "list": [
-          {
-              "pagePath": "pages/index/index",
-              "text": "首页",
-              "iconPath": "images/1.png",
-              "selectedIconPath": "images/11.png"
-          },
-          {
-              "pagePath": "pages/list/index",
-              "text": "目标清单",
-              "iconPath": "images/2.png",
-              "selectedIconPath": "images/22.png"
-          },
-          {
-              "pagePath": "pages/ucenter/index",
-              "text": "我的",
-              "iconPath": "images/3.png",
-              "selectedIconPath": "images/33.png"
-          }
-      ]
+    "selectedColor": "#E85A57",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/1.png",
+        "selectedIconPath": "images/11.png"
+      },
+      {
+        "pagePath": "pages/list/index",
+        "text": "目标清单",
+        "iconPath": "images/2.png",
+        "selectedIconPath": "images/22.png"
+      },
+      {
+        "pagePath": "pages/ucenter/index",
+        "text": "我的",
+        "iconPath": "images/3.png",
+        "selectedIconPath": "images/33.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "wux-icon": "packages/icon/index",
+    "wux-spin": "packages/spin/index",
+    "wux-cell-group": "packages/cell-group/index",
+    "wux-cell": "packages/cell/index"
   }
 }

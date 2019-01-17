@@ -15,7 +15,6 @@ Page({
       _id: options.id
     }).get({
       success: res => {
-        console.log(res)
         let data = res.data[0];
         this.setData({
           title: data.title || '数据已删除',

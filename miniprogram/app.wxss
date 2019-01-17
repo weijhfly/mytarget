@@ -10,6 +10,7 @@ page {
   width: 100%;
   height: 100%;
   background: #f6f6f6;
+  padding-top: 120rpx;
 }
 .container {
   display: flex;
@@ -43,13 +44,60 @@ view{
   float: right;
 }
 .bColor{
-  background: #f6f6f6;
+  background: #fff;
 }
 .w100{
   width: 100%;
 }
 .h40{
   height: 40rpx;
+}
+.header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 120rpx;
+  padding-top: 50rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 40rpx;
+}
+.head-return{
+  position: absolute;
+  left: 0;
+  top: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding:5rpx 0 5rpx;
+  border-top: 1rpx solid #acacac;
+  text-align: center;
+  font-size: 26rpx;
+}
+.footer .footer-item{
+  float: left;
+  width: 33.333333%;
+}
+.footer .footer-item view{
+  margin-top: -10rpx;
+}
+.footer image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.footer .active{
+  color: #e92a2a;
+}
+wux-cell-group{
+  width: 100%;
+}
+.list .wux-cell{
+  padding:25rpx 30rpx;
 }
 /* 主题颜色 */
 
@@ -58,7 +106,7 @@ view{
   background: #000;
   color: #999;
 }
-#dark-skin .bColor{
+#dark-skin .bColor,#dark-skin .wux-cell-group__bd{
   background: #000;
 }
 #dark-skin .borderColor{
@@ -69,7 +117,7 @@ view{
   background: #f9e5ee;
   color: #8e5a54;
 }
-#red-skin .bColor{
+#red-skin .bColor,#red-skin .wux-cell-group__bd{
   background: #f9e5ee;
 }
 #red-skin .borderColor{
@@ -80,7 +128,7 @@ view{
   background: #f6e1c9;
   color: #8c6031;
 }
-#yellow-skin .bColor{
+#yellow-skin .bColor,#yellow-skin .wux-cell-group__bd{
   background: #f6e1c9;
 }
 #yellow-skin .borderColor{
@@ -91,7 +139,7 @@ view{
   background: #e3eabb;
   color: #5d6021;
 }
-#green-skin .bColor{
+#green-skin .bColor,#green-skin .wux-cell-group__bd{
   background: #e3eabb;
 }
 #green-skin .borderColor{
@@ -102,7 +150,7 @@ view{
   background: #d1e9cd;
   color: #417036;
 }
-#cyan-skin .bColor{
+#cyan-skin .bColor,#cyan-skin .wux-cell-group__bd{
   background: #d1e9cd;
 }
 #cyan-skin .borderColor{
@@ -113,7 +161,7 @@ view{
   background: #bbe4e3;
   color: #2e6167;
 }
-#blue-skin .bColor{
+#blue-skin .bColor,#blue-skin .wux-cell-group__bd{
   background: #bbe4e3;
 }
 #blue-skin .borderColor{

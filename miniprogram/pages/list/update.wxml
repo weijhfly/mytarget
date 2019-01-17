@@ -1,4 +1,9 @@
-<view class="page" id='{{skin}}'> 
+<view class="page" id='{{skin}}'>
+  <view class='header'>
+    <navigator class='head-return' open-type='navigateBack'>
+      <wux-icon type="ios-arrow-back" color="{{skin == 'dark-skin' ? '#ddd':'#000'}}"/>
+    </navigator>
+    {{id?'编辑':'添加'}}目标</view>
   <view class="container">
         <view class='input-container'>
             <picker mode="date" value="{{date}}-01-01" start="1970" end="2100" bindchange="bindDateChange" fields="year">
@@ -18,5 +23,8 @@
         <button class='comfirm' type='primary' bindtap='comfirm'>保存</button>
         <view class='h40'></view>
   </view>
-  <image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!uploading}}"></image>
+
+  <view class='fixed-center' hidden="{{!uploading}}">
+    <wux-spin wux-class="spin" size="large"/>
+  </view>
 </view>

@@ -1,7 +1,8 @@
 <!--index.wxml-->
-<view class="page" id='{{skin}}'>  
+<view class="page" id='{{skin}}'>
+ <view class='header'>我的年目标</view>  
   <view class="container" hidden="{{flag}}">
-    <view class='detail-content bColor' wx:if="{{title}}">
+    <view class='detail-content' wx:if="{{title}}">
       <text class='title' selectable='true'>{{title}}</text>
       <text class='content' selectable='true'>{{content}}</text>
     </view>
@@ -10,6 +11,8 @@
       <button bindtap="getUserInfo" type='primary'>去添加</button>
     </view>
   </view>
-  <view>{{time}}</view>
-  <image src='../../images/wait.gif' class='fixed-center wait-img' hidden="{{!flag}}"></image>
+
+  <view class='fixed-center' hidden="{{!flag}}">
+    <wux-spin wux-class="spin" size="large"/>
+  </view>
 </view>

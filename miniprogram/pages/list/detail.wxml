@@ -1,6 +1,11 @@
-<view class="page" id='{{skin}}'>  
+<view class="page" id='{{skin}}'>
+<view class='header'>
+  <navigator class='head-return' open-type='navigateBack'>
+    <wux-icon type="ios-arrow-back" color="{{skin == 'dark-skin' ? '#ddd':'#000'}}"/>
+  </navigator>
+  目标详情</view>  
   <view class="container">
-    <view class='detail-content bColor'>
+    <view class='detail-content'>
       <text class='title' selectable='true'>{{title}}</text>
       <text class='content' selectable='true'>{{content}}</text>
     </view>

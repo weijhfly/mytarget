@@ -1,60 +1,6 @@
-.target-item {
-  width: 100%;
-  height: 100rpx;
-  border-bottom: 1rpx solid rgb(233, 233, 233);
-  position: relative;
-  left:0;
-  top:0;
-  overflow: hidden;
-}
-
-.target {
-  position: absolute;
-  width: 100%;
-  height: 100rpx;
-  left:0;
-  top:0;
-  z-index: 100;
-  line-height: 100rpx;
-  overflow: hidden;
-}
-.target-title{
-  margin-left: 20rpx;
-}
-.target-menu {
-  position: absolute;
-  width: 100%;
-  height: 100rpx;
-  left:0;
-  top:0;
-  z-index: 0;
-}
-
-.menu-delete,.menu-edit {
-  position: absolute;
-  width: 100rpx;
-  height: 98rpx;
-  top:1rpx;
-  right: 0;
-  background-color: rgb(255, 58, 50);
-  color:#FFF;
-  text-align: center;
-  line-height:100rpx;
-  font-size:30rpx;
-}
-.menu-edit {
-  background: #1aad16;
-  right: 100rpx;
-}
 .add-target{
   margin-top: 150rpx;
   width: 60%;
-}
-.js-width{
-  position: absolute;
-  right: -200rpx;
-  bottom:-200rpx; 
-  width: 200rpx;
 }
 .tip{
   color: #999;

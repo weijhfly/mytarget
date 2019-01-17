@@ -12,8 +12,8 @@ Page({
   },
 
   onLoad: function (options) {
+
     app.setSkin(this); 
-    
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
@@ -31,7 +31,19 @@ Page({
             }
           })
         }else{
-          console.log('未授权获取用户信息');
+          console.log('login');
+          wx.login({
+            success: () => {
+              wx.getUserInfo({
+                success: (res) => {
+                  app.globalData.userInfo = res.userInfo
+                },
+                fail: (res) => {
+                  console.log(res);
+                }
+              })
+            }
+          })
         }
       }
     })
