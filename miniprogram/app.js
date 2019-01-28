@@ -110,5 +110,77 @@ App({
       backgroundColorTop: bcolor, 
       backgroundColorBottom: bcolor,
     })
+  },
+  share:function(that){
+    var app = this;
+
+    wx.showLoading({
+      title: '保存中...',
+    })
+
+    let context = wx.createCanvasContext('share'),
+      background = app.data.skins[that.data.skin].background,
+      color = app.data.skins[that.data.skin].color,
+      w = that.data.screenWidth,
+      h = that.data.screenHeight,
+      title = that.data.title,
+      content = that.data.content;
+
+    content = content.replace(/\n/g, '&n').split('&n');
+
+    context.setFillStyle(background);
+    context.fillRect(0, 0, w, h);
+    //绘制标题
+    context.setFontSize(24);
+    context.setFillStyle(color);
+    context.fillText(title, (w - context.measureText(title).width) / 2, 40, w);
+
+    //绘制内容
+    context.setFontSize(20);
+    var rh = 0;
+    content.forEach(function (v, i) {
+      var y = (i + 1) * 25 + 60;
+
+      context.fillText(v, 10, y, w);
+      rh = y;
+    })
+    h = rh + 150;
+    //把画板内容绘制成图片，并回调 画板图片路径
+    context.draw(false, function () {
+      wx.canvasToTempFilePath({
+        x: 0,
+        y: 0,
+        width: w,
+        height: h,
+        destWidth: w,
+        destHeight: h,
+        canvasId: 'share',
+        success: function (res) {
+
+          if (!res.tempFilePath) {
+            wx.showModal({
+              title: '提示',
+              content: '图片绘制中，请稍后重试',
+              showCancel: false
+            })
+          }
+          wx.saveImageToPhotosAlbum({
+            filePath: res.tempFilePath,
+            success: (res) => {
+              wx.hideLoading()
+              wx.showToast({
+                'title': '保存成功'
+              })
+            },
+            fail: (err) => {
+              wx.showToast({
+                'title': '保存失败，请稍后再试'
+              })
+              wx.hideLoading()
+            }
+          })
+        }
+      })
+    });
   }
 })

@@ -7,7 +7,7 @@
   <view class="container list">
     <view class='tip' wx:if="{{!feedback.length&&loaded}}">反馈信息为空</view>
     <wux-cell-group wx:if="{{feedback.length>0}}">
-        <wux-cell title="{{item.content}}" is-link wx:for="{{feedback}}" wx:key="item._id" bindtap="ctrl" id='{{item._id}}' extra="{{item.reply}}"></wux-cell>
+        <wux-cell title="{{item.content}}" is-link wx:for="{{feedback}}" wx:key="item._id" bindtap="ctrl" id='{{item._id}}' extra="{{item.reply?'作者已回复':''}}"></wux-cell>
     </wux-cell-group>
     <button type='primary' class='add-feedback' bindtap="addfeedback" hidden="{{!loaded}}">添加反馈</button>
   </view>

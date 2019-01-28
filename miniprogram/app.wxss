@@ -99,6 +99,26 @@ wux-cell-group{
 .list .wux-cell{
   padding:25rpx 30rpx;
 }
+.page .wux-fab-button__label{
+  background: none;
+  opacity: 1;
+}
+.page .wux-fab-button__button{
+  left: -40rpx;
+}
+.page .wux-fab-button__button +.wux-fab-button__button{
+  left:-60rpx;
+  top:-20rpx;
+}
+.share-canvas{
+ position: absolute;
+ top: 0;
+ left: -999px;
+}
+.page .wux-fab-button__action{
+  right: 20rpx;
+  bottom: 20rpx;
+}
 /* 主题颜色 */
 
 /* 深黑 */

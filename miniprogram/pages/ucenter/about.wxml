@@ -11,7 +11,7 @@
 
       <view class='text-title'>该小程序的特点：</view>
       <view class='text-indent'>1，功能简单明了，首页默认展示当年的目标，突出主题；</view>
-      <view class='text-indent'>2，易于分享，可以快速地分享给朋友(右上角转发)、朋友圈(保存图片，下一版上线)；</view>
+      <view class='text-indent'>2，易于分享，可以快速地分享给朋友、朋友圈(需保存图片后，手动分享)；</view>
       <view class='text-indent'>3，不限制目标数，可以创建明年，甚至5年、10年后的人生目标；</view>
 
       <view class='about-author text-indent'>由于作者对小程序的接触时间不长，可能很多地方还有待完善，若有问题及建议，希望不吝赐教。

@@ -8,7 +8,18 @@ Page({
     content:'',
     id:'',
     shareId:'',
-    skin: app.data.skin
+    skin: app.data.skin,
+    screenWidth:0,
+    screenHeight:0,
+    buttons:[
+      {
+        label: '保存'
+      },
+      {
+        openType: 'share',
+        label: '分享'
+      }
+    ]
   },
 
   onLoad: function (options) {
@@ -50,6 +61,15 @@ Page({
     // 分享
     wx.showShareMenu({});
     this.onGetOpenid(options ? options.id:'');
+    
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          screenWidth: res.screenWidth,
+          screenHeight: res.screenHeight
+        })
+      }
+    })
   },
   getUserInfo: function (e) {
     /*let userInfo = e.detail.userInfo;
@@ -137,6 +157,10 @@ Page({
         console.log("转发失败:" + JSON.stringify(res));
       }
     }
-
+  },
+  onClick(e) {
+    if (e.detail.index === 0) {
+      app.share(this);
+    }
   }
 })

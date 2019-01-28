@@ -46,6 +46,7 @@
     "wux-icon": "packages/icon/index",
     "wux-spin": "packages/spin/index",
     "wux-cell-group": "packages/cell-group/index",
-    "wux-cell": "packages/cell/index"
+    "wux-cell": "packages/cell/index",
+    "wux-fab-button": "packages/fab-button/index"
   }
 }

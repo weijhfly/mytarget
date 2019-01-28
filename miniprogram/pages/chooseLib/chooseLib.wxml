@@ -6,7 +6,7 @@
       <text class="black">初始化失败</text>
     </view>
     <view class="list-item">
-      <text class="request-text">请使用 2.2.3 或以上的基础库以使用云能力</text>
+      <text class="request-text">请升级您的微信，再尝试使用该小程序</text>
     </view>
   </view>
 

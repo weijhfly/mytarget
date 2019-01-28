@@ -15,4 +15,6 @@
   <view class='fixed-center' hidden="{{!flag}}">
     <wux-spin wux-class="spin" size="large"/>
   </view>
+  <wux-fab-button buttons="{{ buttons }}" direction="circle" sAngle="-90" eAngle="-160" bind:click="onClick"/>
+  <canvas canvas-id='share' style='width:{{screenWidth}}px;height:{{screenHeight}}px;' class='share-canvas' spaceBetween='20'></canvas>
 </view>
