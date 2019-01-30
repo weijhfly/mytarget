@@ -1,7 +1,7 @@
 //app.js
 App({
   data: {
-    skin: wx.getStorageSync('skin'),
+    skin: wx.getStorageSync('skin') ||'normal-skin',
     index: 'pages/index/index',
     skins: {
       'normal-skin': {

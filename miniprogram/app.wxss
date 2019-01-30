@@ -11,6 +11,7 @@ page {
   height: 100%;
   background: #f6f6f6;
   padding-top: 120rpx;
+  overflow-y: auto;
 }
 .container {
   display: flex;
