@@ -2,7 +2,7 @@
 <view class="page" id='{{skin}}'>
  <view class='header'>我的年目标</view>  
   <view class="container" hidden="{{flag}}">
-    <view class='detail-content' wx:if="{{title}}">
+    <view class='detail-content slide' wx:if="{{title}}">
       <text class='title' selectable='true'>{{title}}</text>
       <text class='content' selectable='true'>{{content}}</text>
     </view>

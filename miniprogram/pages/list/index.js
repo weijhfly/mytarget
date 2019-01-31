@@ -5,7 +5,9 @@ Page({
     targetList: [],
     flag: false,
     skin: app.data.skin,
-    id:''
+    openMask: false,
+    openDel: false,
+    id: '',
   },
   onLoad: function () {
     
@@ -55,50 +57,60 @@ Page({
     var id = e.target.id,
         that = this;
 
-    wx.showActionSheet({
-      itemList: ['目标详情', '编辑目标', '删除'],
-      success(res) {
-        if(res.tapIndex == 0){
-          wx.navigateTo({
-            url: '../list/detail?id=' + id,
-          })
-        } else if (res.tapIndex == 1) {
-          wx.navigateTo({
-            url: '../list/update?id=' + id,
-          })
-        } else if (res.tapIndex == 2) {
-
-          wx.showModal({
-            title: '提示',
-            content: '确定删除吗？',
-            success: function (res) {
-              if (res.confirm) {
-                const db = wx.cloud.database();
-
-                db.collection("targets").doc(id).remove({
-                  success: res => {
-                    that.getData();
-                    wx.showToast({
-                      title: '删除成功',
-                    })
-                  }, fail: err => {
-                    wx.showToast({
-                      title: '删除失败',
-                    })
-                  }
-                })
-              } else {
-                console.log('用户点击了取消')
-              }
-            }
-          })
-        }
-      }
+    this.setData({
+      openMask: true,
+      id: id
     })
   },
   update: function () {
     wx.navigateTo({
       url: '../list/update',
     })
-  }
+  },
+  exec: function (e) {
+    var i = e.target.dataset.flag,
+      that = this,
+      id = that.data.id;
+
+    if (i == 0) {
+      this.setData({
+        openMask: false
+      })
+    } else if (i == 1 || i == 5) {
+      console.log(id)
+      wx.navigateTo({
+        url: (i == 1 ? '../list/detail?id=' : '../list/update?id=') + id,
+      })
+      that.setData({
+        openMask: false
+      })
+    } else if (i == 2) {
+      this.setData({
+        openDel: true
+      })
+    } else if (i == 3) {
+      this.setData({
+        openDel: false
+      })
+    } else if (i == 4) {
+      const db = wx.cloud.database();
+
+      db.collection("targets").doc(id).remove({
+        success: res => {
+          that.getData();
+          wx.showToast({
+            title: '删除成功',
+          })
+          that.setData({
+            openMask: false,
+            openDel: false
+          })
+        }, fail: err => {
+          wx.showToast({
+            title: '删除失败',
+          })
+        }
+      })
+    }
+  },
 })

@@ -1,13 +1,12 @@
 .userinfo{
   height: 140rpx;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-left: none;
   border-right: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
 }
 .userinfo-avatar {
   width: 100rpx;
@@ -86,14 +85,4 @@
 }
 .active view{
   border-color:  #4d8fe7;
-}
-.mask{
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: 5;
-  opacity: 0.6;
-  top: 0;
-  left: 0;
 }

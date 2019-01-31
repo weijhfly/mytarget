@@ -2,7 +2,7 @@
 <view class="page" id='{{skin}}'>
   <view class='header'>我的</view>    
   <view class="container">
-    <view class="userinfo bColor">
+    <view class="userinfo bColor border wux-cell">
       <image class="userinfo-avatar" src='{{avatarUrl}}'></image>
       <view wx:if="{{nickName}}">{{nickName}}</view>
       <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='login-btn'>我的信息</button>

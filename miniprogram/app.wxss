@@ -12,6 +12,7 @@ page {
   background: #f6f6f6;
   padding-top: 120rpx;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .container {
   display: flex;
@@ -120,6 +121,63 @@ wux-cell-group{
   right: 20rpx;
   bottom: 20rpx;
 }
+.mask{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 5;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+}
+.alert-box{
+  width: 400rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.alert-box .item{
+  line-height: 100rpx;
+}
+.border{
+  position: relative;
+}
+.border:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid #d9d9d9;
+  border-top-width: 2rpx;
+  border-bottom-width: 2rpx
+}
+.bottom-border:after{border-top-width: 0;}
+.right-border:after{border-top-width: 0;border-bottom-width: 0;border-right-width: 2rpx;}
+.red {
+    color: #e53939;
+}
+.del-box{
+  width: 500rpx;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.del-box .del-content{
+  padding:50rpx 0;
+}
+.del-box .del-btn{
+  display: flex;
+  font-size: 30rpx;
+}
+.del-box .del-btn view{
+  flex: 1;
+  line-height: 80rpx;
+}
 /* 主题颜色 */
 
 /* 深黑 */
@@ -130,8 +188,14 @@ wux-cell-group{
 #dark-skin .bColor,#dark-skin .wux-cell-group__bd{
   background: #000;
 }
-#dark-skin .borderColor{
+#dark-skin .borderColor,#dark-skin .wux-cell:after,#dark-skin .wux-cell-group__bd:after{
   border-color:#999;
+}
+#dark-skin .bColor.fixed-center{
+  background: #555;
+}
+#dark-skin .mask{
+  opacity: 0;
 }
 /* 粉红 */
 #red-skin{
@@ -141,7 +205,7 @@ wux-cell-group{
 #red-skin .bColor,#red-skin .wux-cell-group__bd{
   background: #f9e5ee;
 }
-#red-skin .borderColor{
+#red-skin .borderColor,#red-skin .wux-cell:after,#red-skin .wux-cell-group__bd:after{
   border-color:#8e5a54;
 }
 /* 橘黄 */
@@ -152,7 +216,7 @@ wux-cell-group{
 #yellow-skin .bColor,#yellow-skin .wux-cell-group__bd{
   background: #f6e1c9;
 }
-#yellow-skin .borderColor{
+#yellow-skin .borderColor,#yellow-skin .wux-cell:after,#yellow-skin .wux-cell-group__bd:after{
   border-color:#8c6031;
 }
 /* 草绿 */
@@ -163,7 +227,7 @@ wux-cell-group{
 #green-skin .bColor,#green-skin .wux-cell-group__bd{
   background: #e3eabb;
 }
-#green-skin .borderColor{
+#green-skin .borderColor,#green-skin .wux-cell:after,#green-skin .wux-cell-group__bd:after{
   border-color:#5d6021;
 }
 /* 青葱 */
@@ -174,7 +238,7 @@ wux-cell-group{
 #cyan-skin .bColor,#cyan-skin .wux-cell-group__bd{
   background: #d1e9cd;
 }
-#cyan-skin .borderColor{
+#cyan-skin .borderColor,#cyan-skin .wux-cell:after,#cyan-skin .wux-cell-group__bd:after{
   border-color:#417036;
 }
 /* 水蓝 */
@@ -185,6 +249,6 @@ wux-cell-group{
 #blue-skin .bColor,#blue-skin .wux-cell-group__bd{
   background: #bbe4e3;
 }
-#blue-skin .borderColor{
+#blue-skin .borderColor,#blue-skin .wux-cell:after,#blue-skin .wux-cell-group__bd:after{
   border-color:#2e6167;
 }

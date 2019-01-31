@@ -19,3 +19,17 @@ page{
   color: #999;
   margin: 300rpx 0 100rpx;
 }
+.slide{
+	animation-duration: 1s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+	animation-name: slide;
+}
+@keyframes slide{
+	from {
+	 transform: translateX(100%);
+	} 
+	to {
+	 transform: translateX(0);
+	}
+}

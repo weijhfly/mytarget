@@ -16,7 +16,6 @@ Page({
       _id: options.id
     }).get({
       success: res => {
-        console.log(res)
         let data = res.data[0];
         this.setData({
           loaded:true,

@@ -114,6 +114,13 @@ App({
   share:function(that){
     var app = this;
 
+    if(!that.data.title){
+      wx.showToast({
+        title: '数据为空噢~',
+        icon: 'none'
+      })
+      return;
+    }
     wx.showLoading({
       title: '保存中...',
     })

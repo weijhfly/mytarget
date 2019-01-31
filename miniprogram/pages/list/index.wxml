@@ -11,4 +11,19 @@
   <view class='fixed-center' hidden="{{flag}}">
     <wux-spin wux-class="spin" size="large"/>
   </view>
+
+  <view class='mask' hidden="{{!openMask}}"  bindtap="exec" data-flag='0'></view>
+  <view class='fixed-center alert-box bColor' hidden="{{!openMask}}">
+    <view class='item border wux-cell bottom-border' bindtap="exec" data-flag='1'>目标详情</view>
+    <view class='item border wux-cell bottom-border' bindtap="exec" data-flag='5'>编辑目标</view>
+    <view class='item red border wux-cell bottom-border' bindtap="exec" data-flag='2'>删除</view>
+    <view class='item' bindtap="exec" data-flag='0'>取消</view>
+  </view>
+  <view class='fixed-center del-box bColor' hidden="{{!openDel}}">
+    <view class='del-content border bottom-border wux-cell'>确定删除目标吗？</view>
+    <view class='del-btn'>
+      <view class='del-cancel border right-border wux-cell' bindtap="exec" data-flag='3'>取消</view>
+      <view class='del-check' bindtap="exec" data-flag='4'>删除</view>
+    </view>
+  </view>
 </view>
