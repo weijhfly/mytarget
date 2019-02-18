@@ -132,7 +132,7 @@ wux-cell-group{
   left: 0;
 }
 .alert-box{
-  width: 400rpx;
+  width: 450rpx;
   border-radius: 10rpx;
   text-align: center;
 }
@@ -177,6 +177,10 @@ wux-cell-group{
 .del-box .del-btn view{
   flex: 1;
   line-height: 80rpx;
+}
+.saying{
+  font-size: 28rpx;
+  padding:50rpx 20rpx 0;
 }
 /* 主题颜色 */
 
