@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="page" id='{{skin}}'>
-<view class='saying'>名人语录：青年时的失败要比壮年时的胜利，老年时的成功更令人满意。一一迪斯雷里</view>
+<view class='saying' wx:if="{{sayingN}}">{{sayingC}}──{{sayingN}}</view>
  <view class='header'>我的年目标</view>  
   <view class="container" hidden="{{flag}}">
     <view class='detail-content slide' wx:if="{{title}}">

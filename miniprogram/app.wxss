@@ -180,7 +180,8 @@ wux-cell-group{
 }
 .saying{
   font-size: 28rpx;
-  padding:50rpx 20rpx 0;
+  padding:50rpx 20rpx 40rpx;
+  text-indent:2em;
 }
 /* 主题颜色 */
 

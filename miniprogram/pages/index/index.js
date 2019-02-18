@@ -11,6 +11,8 @@ Page({
     skin: app.data.skin,
     screenWidth:0,
     screenHeight:0,
+    sayingC:'',
+    sayingN:'',
     buttons:[
       {
         label: '保存'
@@ -68,6 +70,42 @@ Page({
           screenWidth: res.screenWidth,
           screenHeight: res.screenHeight
         })
+      }
+    })
+    const db = wx.cloud.database();
+    let that = this;
+
+    db.collection("sayingone").get({
+      success: res => {
+        let data = res.data[0],
+            order = data.order;
+ 
+        db.collection('saying').count({
+          success(res) {
+            if(order >= res.total){
+              order = 1;
+              db.collection('sayingone').doc('XGrCysDR1TiNWNF1').update({
+                data: {
+                  order: 1
+                }
+              })
+            }
+            db.collection('saying').skip(order).limit(1).get({
+              success: res => {
+                let data = res.data[0];
+ 
+                that.setData({
+                  sayingC: data.content,
+                  sayingN: data.name,
+                })
+              }, fail: err => {
+                console.log(err)
+              }
+            })
+          }
+        })
+      }, fail: err => {
+        console.log(err)
       }
     })
   },

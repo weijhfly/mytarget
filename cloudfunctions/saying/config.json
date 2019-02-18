@@ -3,7 +3,7 @@
     {
       "name": "main",
       "type": "timer",
-      "config": "* 1 * * * * *"
+      "config": "0 0 0 * * * *"
     }
   ]
 }
