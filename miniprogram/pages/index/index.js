@@ -60,18 +60,7 @@ Page({
         }
       }
     })
-    // 分享
-    wx.showShareMenu({});
-    this.onGetOpenid(options ? options.id:'');
-    
-    wx.getSystemInfo({
-      success: res => {
-        this.setData({
-          screenWidth: res.screenWidth,
-          screenHeight: res.screenHeight
-        })
-      }
-    })
+    // 名人语录
     const db = wx.cloud.database();
     let that = this;
 
@@ -106,6 +95,18 @@ Page({
         })
       }, fail: err => {
         console.log(err)
+      }
+    })
+    // 分享及年份目标
+    wx.showShareMenu({});
+    this.onGetOpenid(options ? options.id:'');
+    
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          screenWidth: res.screenWidth,
+          screenHeight: res.screenHeight
+        })
       }
     })
   },

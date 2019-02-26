@@ -179,8 +179,9 @@ wux-cell-group{
   line-height: 80rpx;
 }
 .saying{
+  height: 35rpx;
   font-size: 28rpx;
-  padding:50rpx 20rpx 40rpx;
+  margin:50rpx 20rpx 30rpx;
   text-indent:2em;
 }
 /* 主题颜色 */

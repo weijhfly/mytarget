@@ -1,6 +1,8 @@
 <!--index.wxml-->
 <view class="page" id='{{skin}}'>
-<view class='saying' wx:if="{{sayingN}}">{{sayingC}}──{{sayingN}}</view>
+<view class='saying'>
+<view wx:if="{{sayingN}}">{{sayingC}}──{{sayingN}}</view>
+</view>
  <view class='header'>我的年目标</view>  
   <view class="container" hidden="{{flag}}">
     <view class='detail-content slide' wx:if="{{title}}">
