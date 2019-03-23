@@ -12,3 +12,7 @@
 .text-indent{
   text-indent: 2em;
 }
+.text-right{
+  margin: 20rpx;
+  text-align: right;
+}

@@ -17,6 +17,10 @@
       <view class='about-author text-indent'>由于作者对小程序的接触时间不长，可能很多地方还有待完善，若有问题及建议，希望不吝赐教。
       </view>
       <view>联系方式：<text selectable='true' >1241968795</text> qq/微信</view>
+      <view class='text-title'>声明：</view>
+      <view class='text-indent'>由于微信小程序中个人开发者不能涉及备忘录类目，该小程序将停止升级，但不会进行关闭(理想的情况是永远保持运行)。</view>
+      <view class='text-indent'>虽然该小程序不能进行升级，以开发出更多有意义的功能，但愿我们的目标/规划长存，梦想飞扬，共勉！</view>
+      <view class='text-right'>2019-03-23</view>
     </view>
   </view>
 </view>

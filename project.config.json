@@ -40,8 +40,9 @@
 				{
 					"id": 1,
 					"name": "t",
-					"pathName": "pages/list/index",
-					"query": ""
+					"pathName": "pages/ucenter/about",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

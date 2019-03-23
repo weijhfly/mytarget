@@ -19,8 +19,9 @@ Page({
     }
   },
   getData:function(){
-
+    let _this = this;
     const db = wx.cloud.database();
+
     db.collection("targets").where({
       _openid: app.globalData.openid
     }).get({
@@ -37,6 +38,40 @@ Page({
         })
       }
     })
+    //定义每次获取的条数​ 
+    const MAX_LIMIT = 20;
+    //先取出集合的总数 
+    db.collection('targets').where({_openid: app.globalData.openid}).count({
+      success(res) {
+      if(res.total <= 20){return false;}
+
+       const batchTimes = Math.ceil(res.total / MAX_LIMIT) -1;
+       let arr = []
+
+       for (let i = 0; i < batchTimes; i++) { 
+        let index = i * MAX_LIMIT;
+
+        index = index || MAX_LIMIT;
+
+        db.collection("targets").where({
+          _openid: app.globalData.openid
+        }).skip(index).limit(MAX_LIMIT).get({
+          success: res => {
+            arr = arr.concat(res.data);
+            if(i == batchTimes -1){
+              let data = _this.data.targetList.concat(arr);
+             _this.setData({
+                targetList: data
+              })
+             app.globalData.targetList = data;
+            }
+          }, fail: err => {
+
+          }
+        })
+      } 
+    }
+  })
   },
   onGetOpenid: function () {
     // 调用云函数

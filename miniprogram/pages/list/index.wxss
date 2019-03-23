@@ -1,5 +1,5 @@
 .add-target{
-  margin-top: 150rpx;
+  margin: 150rpx 0 60rpx;
   width: 60%;
 }
 .tip{
